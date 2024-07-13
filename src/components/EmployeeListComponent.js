@@ -55,6 +55,7 @@ const EmployeeListComponent =() => {
                                 <td>
                                     <Link to={`/employee/details/${employee.id}`} className="btn btn-info">Details</Link> &nbsp; &nbsp;
                                     <Link to={`/employee/edit/${employee.id}`} className="btn btn-secondary">Edit</Link>&nbsp;
+                                    <button className="btn btn-danger"   onClick={() => deleteById(employee.id)}>Delete</button>
                                     {/* <Link to={`/employee/${employee.id}`} className="btn btn-secondary">Edit</Link>&nbsp; &nbsp;
                                     <button className="btn btn-danger"   onClick={() => deleteById(employee.id)}>Delete</button> */}
                                 </td>
