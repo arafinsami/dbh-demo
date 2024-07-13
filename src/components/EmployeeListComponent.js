@@ -37,6 +37,7 @@ const EmployeeListComponent =() => {
         <div>
             <h2>All Employees</h2>
             <Link to="/employee/save" className="btn btn-primary">Add Employee</Link>
+            <Link to="/logout" className="btn btn-danger ml-2">Logout</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -56,8 +57,6 @@ const EmployeeListComponent =() => {
                                     <Link to={`/employee/details/${employee.id}`} className="btn btn-info">Details</Link> &nbsp; &nbsp;
                                     <Link to={`/employee/edit/${employee.id}`} className="btn btn-secondary">Edit</Link>&nbsp;
                                     <button className="btn btn-danger"   onClick={() => deleteById(employee.id)}>Delete</button>
-                                    {/* <Link to={`/employee/${employee.id}`} className="btn btn-secondary">Edit</Link>&nbsp; &nbsp;
-                                    <button className="btn btn-danger"   onClick={() => deleteById(employee.id)}>Delete</button> */}
                                 </td>
                             </tr>
                         ))

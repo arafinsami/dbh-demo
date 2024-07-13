@@ -1,31 +1,45 @@
-
-
-import axios from "axios";
+import axios from 'axios';
 
 const API_URL = 'http://localhost:9999/dbh-api/employee';
 
+const axiosInstance = axios.create({
+    baseURL: API_URL,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+
+axiosInstance.interceptors.request.use(config => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+}, error => {
+    return Promise.reject(error);
+});
+
 class EmployeeService {
 
-    save(employee){
-        return axios.post(API_URL, employee);
+    save(employee) {
+        return axiosInstance.post('', employee);
     }
 
-    update(employee){
-        return axios.put(API_URL, employee);
+    update(employee) {
+        return axiosInstance.put('', employee);
     }
 
-    findById(id){
-        return axios.get(`${API_URL}/${id}`);
+    findById(id) {
+        return axiosInstance.get(`${id}`);
     }
 
-    delete(id){
-        return axios.delete(`${API_URL}/${id}`);
+    delete(id) {
+        return axiosInstance.delete(`${id}`);
     }
 
-    findAll(){
-        return axios.get(`${API_URL}`);
+    findAll() {
+        return axiosInstance.get('');
     }
-} 
-
+}
 
 export default new EmployeeService();
