@@ -5,12 +5,12 @@ import './App.css';
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import EmployeeListComponent from './components/EmployeeListComponent';
-import EmployeeDetailsComponent from './components/EmployeeDetailsComponent';
-import EmployeeSaveComponent from './components/EmployeeSaveComponent';
-import LoginComponent from './components/LoginComponent';
-import LogoutComponent from './components/LogoutComponent';
-import SingupComponent from './components/SingupComponent';
+import EmployeeListComponent from './components/employee/EmployeeListComponent';
+import EmployeeDetailsComponent from './components/employee/EmployeeDetailsComponent';
+import EmployeeSaveComponent from './components/employee/EmployeeSaveComponent';
+import LoginComponent from './components/auth/LoginComponent';
+import LogoutComponent from './components/auth/LogoutComponent';
+import SingupComponent from './components/auth/SingupComponent';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token');

@@ -21,20 +21,8 @@ axiosInstance.interceptors.request.use(config => {
 
 class EmployeeQueryService {
 
-    save(employee) {
-        return axiosInstance.post('', employee);
-    }
-
-    update(employee) {
-        return axiosInstance.put('', employee);
-    }
-
     findById(id) {
         return axiosInstance.get(`${id}`);
-    }
-
-    delete(id) {
-        return axiosInstance.delete(`${id}`);
     }
 
     findAll() {

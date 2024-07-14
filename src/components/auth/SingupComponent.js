@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
-import SingupService from '../services/auth/SingupService';
+import SingupService from '../../services/auth/SingupService';
 
 const SignupComponent = () => {
   const [name, setName] = useState('');

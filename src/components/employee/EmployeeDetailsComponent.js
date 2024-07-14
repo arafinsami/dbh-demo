@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import EmployeeQueryService from '../services/query/EmployeeQueryService';
+import EmployeeQueryService from '../../services/query/EmployeeQueryService';
 
 const EmployeeDetailsComponent = () => {
   const [employee, setEmployee] = useState({});

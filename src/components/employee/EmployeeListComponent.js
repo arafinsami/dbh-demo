@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import EmployeeQueryService from '../services/query/EmployeeQueryService';
+import EmployeeQueryService from '../../services/query/EmployeeQueryService';
 
 
 const EmployeeListComponent =() => {
