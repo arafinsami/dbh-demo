@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ const LoginComponent = () => {
           <label>Password:</label>
           <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary">Login</button> &nbsp;<Link to={`/singup`} className="btn btn-info">Sing Up</Link>
       </form>
     </div>
   );

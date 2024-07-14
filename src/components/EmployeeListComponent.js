@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import EmployeeService from "../services/EmployeeService";
+import EmployeeQueryService from '../services/query/EmployeeQueryService';
 
 
 const EmployeeListComponent =() => {
@@ -13,7 +13,7 @@ const EmployeeListComponent =() => {
 
     const fetchEmployees = async () => {
         try{
-            const response = await EmployeeService.findAll();
+            const response = await EmployeeQueryService.findAll();
             if(Array.isArray(response.data.data)) {
                 setEmployees(response.data.data);
             } else {
@@ -26,7 +26,7 @@ const EmployeeListComponent =() => {
 
     const deleteById = async (id) => {
         try{
-            await EmployeeService.delete(id);
+            await EmployeeQueryService.delete(id);
             fetchEmployees();
         } catch(error){
             console.error('error from response !!!', error);

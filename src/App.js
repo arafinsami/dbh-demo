@@ -10,6 +10,7 @@ import EmployeeDetailsComponent from './components/EmployeeDetailsComponent';
 import EmployeeSaveComponent from './components/EmployeeSaveComponent';
 import LoginComponent from './components/LoginComponent';
 import LogoutComponent from './components/LogoutComponent';
+import SingupComponent from './components/SingupComponent';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -23,6 +24,7 @@ function App() {
         <Routes>
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/logout" element={<LogoutComponent />} />
+            <Route path="/singup" element={<SingupComponent />} />
             <Route path="/" element={<PrivateRoute><EmployeeListComponent/></PrivateRoute>} />
             <Route path="/employee/details/:id" element={<PrivateRoute><EmployeeDetailsComponent/></PrivateRoute>} />
             <Route path="/employee/save" element={<PrivateRoute><EmployeeSaveComponent/></PrivateRoute>} />

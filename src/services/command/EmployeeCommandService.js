@@ -1,4 +1,5 @@
-import axios from 'axios';
+
+import axios from "axios";
 
 const API_URL = 'http://localhost:9999/dbh-api/employee';
 
@@ -19,7 +20,7 @@ axiosInstance.interceptors.request.use(config => {
     return Promise.reject(error);
 });
 
-class EmployeeService {
+class EmployeeCommandService {
 
     save(employee) {
         return axiosInstance.post('', employee);
@@ -29,17 +30,9 @@ class EmployeeService {
         return axiosInstance.put('', employee);
     }
 
-    findById(id) {
-        return axiosInstance.get(`${id}`);
-    }
-
     delete(id) {
         return axiosInstance.delete(`${id}`);
     }
-
-    findAll() {
-        return axiosInstance.get('');
-    }
 }
 
-export default new EmployeeService();
+export default new EmployeeCommandService();

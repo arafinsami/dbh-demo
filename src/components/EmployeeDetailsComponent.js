@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import EmployeeService from '../services/EmployeeService';
+import EmployeeQueryService from '../services/query/EmployeeQueryService';
 
 const EmployeeDetailsComponent = () => {
   const [employee, setEmployee] = useState({});
@@ -12,7 +12,7 @@ const EmployeeDetailsComponent = () => {
 
   const fetchEmployee = async () => {
     try {
-      const response = await EmployeeService.findById(id);
+      const response = await EmployeeQueryService.findById(id);
       setEmployee(response.data.data);
     } catch (error) {
       console.error('Error fetching employee:', error);

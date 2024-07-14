@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import EmployeeService from "../services/EmployeeService";
+import EmployeeCommandService from "../services/command/EmployeeCommandService";
+import EmployeeQueryService from '../services/query/EmployeeQueryService';
 
 const EmployeeSaveComponent = ()=> {
 
@@ -16,7 +17,7 @@ const EmployeeSaveComponent = ()=> {
 
     const fetchEmployee = async (id) => {
         try {
-          const response = await EmployeeService.findById(id);
+          const response = await EmployeeQueryService.findById(id);
           setEmployee(response.data.data);
         } catch (error) {
           console.error('Error fetching employee:', error);
@@ -33,9 +34,9 @@ const EmployeeSaveComponent = ()=> {
         } 
 
         if(id){
-            await EmployeeService.update(employee);
+            await EmployeeCommandService.update(employee);
         } else {
-            await EmployeeService.save(employee);
+            await EmployeeCommandService.save(employee);
         }
         navigate('/');
       };
